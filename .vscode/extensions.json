@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "rust-lang.rust-analyzer",
+    "biomejs.biome",
+    "ms-playwright.playwright",
+    "tamasfe.even-better-toml",
+    "Gleam.gleam"
+  ]
+}

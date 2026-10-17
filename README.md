@@ -15,7 +15,7 @@ Milestone 1 is a thin, reviewable vertical slice: a React/TypeScript interface b
 
 ## Development setup
 
-Install [mise](https://mise.jdx.dev/) and trust the project configuration. It pins Node.js 24 LTS and Rust 1.99.1 in `.tool-versions`, and installs the Rust coverage and mutation tools from `mise.toml`:
+Install [mise](https://mise.jdx.dev/) and trust the project configuration. `.tool-versions` pins Node.js 24 LTS, Rust 1.99.1, and the Rust coverage and mutation tools. `mise.toml` adds the Rust components needed by coverage and defines project tasks:
 
 ```sh
 mise trust
