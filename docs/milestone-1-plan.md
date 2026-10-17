@@ -2,7 +2,7 @@
 
 ## Goal
 
-Create a polished, clickable Vue and TypeScript prototype backed by a small Rust local service. This is the first thin vertical slice: exercise selection, editing, simulated test runs, and simulated hints work through the UI and service. Real Gleam execution and Ollama integration remain future milestones.
+Create a polished, clickable React and TypeScript prototype backed by a small Rust local service. This is the first thin vertical slice: exercise selection, editing, simulated test runs, and simulated hints work through the UI and service. Real Gleam execution and Ollama integration remain future milestones.
 
 ## Learner flow
 
@@ -39,7 +39,7 @@ Create a polished, clickable Vue and TypeScript prototype backed by a small Rust
 - **End-to-end tests:** start the real Rust service and frontend, then drive a browser through selecting an exercise, editing code, running a simulated pass and failure, requesting a hint, and recovering from a service error.
 - **Contract checks:** verify frontend request/response assumptions against the service API, preferably through end-to-end tests or shared fixtures generated from the API schema.
 - **Coverage review:** report Rust and frontend coverage and inspect uncovered decision branches on core behavior. Prefer meaningful branch coverage over a percentage target that encourages low-value tests.
-- **Mutation testing:** try `cargo-mutants` on Rust core logic and a TypeScript/Vue-compatible mutation runner on focused frontend logic. Keep mutation scope small enough for practical feedback; review surviving mutants and document any excluded/generated code. If a suitable Vue-compatible tool is not reliable, keep mutation testing on Rust and record the frontend limitation.
+- **Mutation testing:** try `cargo-mutants` on Rust core logic and Stryker on focused frontend logic. Keep mutation scope small enough for practical feedback; review surviving mutants and document any excluded/generated code.
 - Run unit and end-to-end suites in CI or the repository's standard verification workflow once established.
 
 ## Out of scope
@@ -64,7 +64,7 @@ Create a polished, clickable Vue and TypeScript prototype backed by a small Rust
 
 ## Implementation sequence
 
-1. Inspect the repository and establish Vue/TypeScript, Rust, and build-tool baselines if they do not exist.
+1. Inspect the repository and establish React/TypeScript, Rust, and build-tool baselines if they do not exist.
 2. Agree on the minimal local API contract and implement Rust sample exercise data and handlers with unit tests.
 3. Implement the page shell and exercise selection, connecting the UI to the service.
 4. Add editor state and reset, then simulated run results and output presentation.
@@ -82,8 +82,8 @@ Create a polished, clickable Vue and TypeScript prototype backed by a small Rust
 
 ## Implementation notes
 
-- Initial stack: Axum and Tokio for the Rust HTTP service; Vue 3, TypeScript, Vite, Vitest, Vue Test Utils, Playwright, and StrykerJS for the browser UI and tests.
+- Initial stack: Axum and Tokio for the Rust HTTP service; React, TypeScript, Vite, Vitest, React Testing Library, Playwright, and StrykerJS for the browser UI and tests. Biome handles linting and formatting.
 - The API is rooted at `/api/v1`; the browser uses `VITE_API_BASE_URL` so unit tests and alternate local ports can supply a different endpoint.
 - The service uses deterministic mock checks and hints. Real compiler execution and model calls belong to later milestones.
 - Rust toolchain and mutation testing require Rust/Cargo and `cargo-mutants` to be installed on the development machine.
-- Frontend mutation testing targets the API client, where mutations map to contract behavior; Vue UI state is covered with component and browser end-to-end tests.
+- Frontend mutation testing targets the API client, where mutations map to contract behavior; React UI state is covered with component and browser end-to-end tests.

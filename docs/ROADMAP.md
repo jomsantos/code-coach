@@ -1,12 +1,12 @@
 # Code Coach roadmap
 
-The Code Coach is a local-first app for learning Gleam. Its interface comes first, and each milestone adds a complete user-facing vertical slice. Milestone 1 includes both the Vue and TypeScript interface and a small Rust local service, using mock exercise and coaching behavior. Later slices add real Gleam execution, Ollama, and persistence.
+The Code Coach is a local-first app for learning Gleam. Its interface comes first, and each milestone adds a complete user-facing vertical slice. Milestone 1 includes both the React and TypeScript interface and a small Rust local service, using mock exercise and coaching behavior. Later slices add real Gleam execution, Ollama, and persistence.
 
 ## Milestones
 
 ### 1. Clickable interface prototype
 
-Build the Vue and TypeScript app shell and a minimal Rust local service. Include an exercise list, selected exercise view, prompt, code editor area, test output, and hint panel, plus loading and error states. The Rust service serves mock exercises and deterministic simulated run and hint responses; the UI calls it end to end.
+Build the React and TypeScript app shell and a minimal Rust local service. Include an exercise list, selected exercise view, prompt, code editor area, test output, and hint panel, plus loading and error states. The Rust service serves mock exercises and deterministic simulated run and hint responses; the UI calls it end to end.
 
 **Complete when:** a learner can use the intended coaching flow through the UI and Rust service, and the service behavior is covered by unit tests and browser end-to-end tests.
 
@@ -18,7 +18,7 @@ Replace the simulated run behavior with real Gleam execution for one exercise. S
 
 ### Testing foundation (part of Milestone 1 and ongoing)
 
-Establish fast unit tests for Rust behavior and Vue/TypeScript components, plus browser end-to-end coverage for the main learner flows. Add mutation testing where the chosen Rust and frontend tooling supports the stack reliably. Keep tests focused on observable behavior and error paths, and run the relevant suites as each vertical slice is added.
+Establish fast unit tests for Rust behavior and React/TypeScript components, plus browser end-to-end coverage for the main learner flows. Add mutation testing where the chosen Rust and frontend tooling supports the stack reliably. Keep tests focused on observable behavior and error paths, and run the relevant suites as each vertical slice is added.
 
 **Complete when:** the primary exercise-selection, run, hint, loading, and error paths have automated coverage at their appropriate levels, with mutation testing exercised on core logic where practical.
 

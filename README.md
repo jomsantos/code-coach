@@ -1,6 +1,6 @@
 # Code Coach
 
-Code Coach is a local-first app for learning Gleam through small coding exercises. The planned interface is built with Vue and TypeScript, with a Rust service handling exercise data and local actions. A later milestone will connect real Gleam execution and a local Ollama model.
+Code Coach is a local-first app for learning Gleam through small coding exercises. The interface is built with React and TypeScript, with a Rust service handling exercise data and local actions. A later milestone will connect real Gleam execution and a local Ollama model.
 
 ## Project status
 
@@ -11,7 +11,7 @@ Milestone 1 is in progress. It is a UI-first vertical slice backed by a local Ru
 
 ## First milestone
 
-Milestone 1 is a thin, reviewable vertical slice: a Vue/TypeScript interface backed by a small Rust local service. It uses sample exercises and simulated run and hint responses. Real compiler execution, Ollama integration, and saved progress are planned for later milestones.
+Milestone 1 is a thin, reviewable vertical slice: a React/TypeScript interface backed by a small Rust local service. It uses sample exercises and simulated run and hint responses. Real compiler execution, Ollama integration, and saved progress are planned for later milestones.
 
 ## Development setup
 
@@ -25,7 +25,7 @@ mise run setup
 
 `mise run setup` installs the locked npm dependencies and Playwright's Chromium browser. For Linux, install the browser's system packages with `npx playwright install --with-deps chromium`.
 
-Start the Rust service and Vue app in separate terminals:
+Start the Rust service and React app in separate terminals:
 
 ```sh
 mise run dev-api
@@ -60,7 +60,7 @@ mise run mutation-rust
 mise run mutation-web
 ```
 
-The web code uses ESLint with the official Vue plugin for linting and Prettier for formatting. TypeScript is pinned to 5.9.3, the newest version accepted by the current `typescript-eslint` peer range; `@types/node` follows Node 24. The other direct web dependencies are pinned to their latest compatible stable releases in `web/package.json` and `web/package-lock.json`.
+The web code uses Biome for linting and formatting, React 19, and TypeScript. Direct web dependencies are pinned to stable versions in `web/package.json` and `web/package-lock.json`.
 
 ## Local API
 
@@ -68,4 +68,4 @@ The service contract is documented in [docs/API.md](docs/API.md).
 
 ## Testing goals
 
-The project aims for useful unit coverage in Rust and Vue/TypeScript, browser end-to-end coverage of the learner flow, and mutation testing on core logic where practical. See the [Milestone 1 testing strategy](docs/milestone-1-plan.md#testing-strategy).
+The project aims for useful unit coverage in Rust and React/TypeScript, browser end-to-end coverage of the learner flow, and mutation testing on core logic where practical. See the [Milestone 1 testing strategy](docs/milestone-1-plan.md#testing-strategy).

@@ -12,7 +12,7 @@ description = "Install JavaScript dependencies and the Playwright Chromium brows
 run = "cd web && npm ci && npx playwright install chromium"
 
 [tasks.build]
-description = "Type-check and build the Vue application"
+description = "Type-check and build the React application"
 run = "cd web && npm run build"
 
 [tasks.format]
@@ -23,8 +23,8 @@ run = [
 ]
 
 [tasks.lint-web]
-description = "Lint TypeScript and Vue files"
-run = "cd web && npm run lint"
+description = "Lint and format web files with Biome"
+run = "cd web && npm run check"
 
 [tasks.test-rust]
 description = "Run Rust unit tests"
@@ -55,7 +55,7 @@ description = "Start the local Rust API"
 run = "cargo run --manifest-path server/Cargo.toml"
 
 [tasks.dev-web]
-description = "Start the Vue development server"
+description = "Start the React development server"
 run = "cd web && npm run dev"
 
 [tasks.verify]
