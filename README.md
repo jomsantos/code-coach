@@ -31,7 +31,7 @@ Enable the pre-push hook after cloning:
 mise run hooks-install
 ```
 
-The hook runs `mise run verify` before each push, including formatting, builds, unit tests, browser tests, coverage, and mutation tests. To run the same checks manually, use `mise run verify`.
+The hook runs `mise run pre-push` before each push, including formatting, linting, builds, Rust and frontend unit tests, coverage, and browser tests. Mutation tests remain available in the longer `mise run verify` task. To run the pre-push checks manually, use `mise run pre-push`.
 
 Start the Rust service and React app in separate terminals:
 

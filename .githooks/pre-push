@@ -9,5 +9,5 @@ fi
 repo_root=$(git rev-parse --show-toplevel)
 cd "$repo_root"
 
-echo "Running the full Code Coach verification suite before push..."
-mise run verify
+echo "Running Code Coach checks and all unit and browser tests before push..."
+mise run pre-push

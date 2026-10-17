@@ -71,3 +71,14 @@ run = [
   "mise run mutation-rust",
   "mise run mutation-web",
 ]
+
+[tasks.pre-push]
+description = "Run formatting, linting, builds, coverage, unit tests, and browser tests"
+run = [
+  "mise run format",
+  "mise run lint-web",
+  "mise run build",
+  "mise run coverage-rust",
+  "mise run test-web",
+  "mise run test-e2e",
+]
