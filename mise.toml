@@ -7,6 +7,10 @@ components = ["rustfmt", "llvm-tools"]
 description = "Install JavaScript dependencies and the Playwright Chromium browser"
 run = "cd web && npm ci && npx playwright install chromium"
 
+[tasks.hooks-install]
+description = "Enable the repository's pre-push verification hook"
+run = "git config --local core.hooksPath .githooks"
+
 [tasks.build]
 description = "Type-check and build the React application"
 run = "cd web && npm run build"

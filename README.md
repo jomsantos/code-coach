@@ -25,6 +25,14 @@ mise run setup
 
 `mise run setup` installs the locked npm dependencies and Playwright's Chromium browser. For Linux, install the browser's system packages with `npx playwright install --with-deps chromium`.
 
+Enable the pre-push hook after cloning:
+
+```sh
+mise run hooks-install
+```
+
+The hook runs `mise run verify` before each push, including formatting, builds, unit tests, browser tests, coverage, and mutation tests. To run the same checks manually, use `mise run verify`.
+
 Start the Rust service and React app in separate terminals:
 
 ```sh
