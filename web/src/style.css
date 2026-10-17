@@ -1,5 +1,5 @@
 :root {
-  font-family: 'Avenir Next', Avenir, 'Segoe UI', sans-serif;
+  font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
   color: #20312d;
   background: #f5f4ef;
   font-synthesis: none;
@@ -12,8 +12,8 @@
   --green: #335f4d;
   --mint: #dfeee3;
   --coral: #da775f;
-  --mono: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
-  --display: 'Avenir Next', Avenir, 'Segoe UI', sans-serif;
+  --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --display: "Avenir Next", Avenir, "Segoe UI", sans-serif;
 }
 
 * {
@@ -356,7 +356,7 @@ textarea:focus-visible {
 }
 .exercise-heading h2 {
   margin: 11px 0 6px;
-  font: 800 clamp(27px, 3vw, 36px)/1.15 var(--display);
+  font: 800 clamp(27px, 3vw, 36px) / 1.15 var(--display);
   letter-spacing: -1.6px;
   color: #273b33;
 }
@@ -484,7 +484,7 @@ textarea:focus-visible {
   color: #c0c2b9;
   text-align: right;
   white-space: pre;
-  font: 11px/1.8 var(--mono);
+  font: 11px / 1.8 var(--mono);
   user-select: none;
 }
 .editor-frame textarea {
@@ -497,7 +497,7 @@ textarea:focus-visible {
   outline: none;
   background: transparent;
   color: #455b4d;
-  font: 12px/1.8 var(--mono);
+  font: 12px / 1.8 var(--mono);
   tab-size: 2;
 }
 .editor-frame textarea:focus-visible {
@@ -629,7 +629,7 @@ textarea:focus-visible {
 .result-panel p {
   margin: 4px 0 0;
   color: #818b80;
-  font: 9px/1.5 var(--mono);
+  font: 9px / 1.5 var(--mono);
   white-space: pre-wrap;
 }
 .result-label {
@@ -715,7 +715,7 @@ textarea:focus-visible {
   border-radius: 5px;
   background: #f4f5ef;
   color: #55715b;
-  font: 10px/1.5 var(--mono);
+  font: 10px / 1.5 var(--mono);
   overflow-wrap: anywhere;
 }
 .hint-card {
