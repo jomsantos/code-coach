@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up mise toolchain
+        uses: jdx/mise-action@v5
+
+      - name: Install frontend dependencies
+        run: mise run setup
+
+      - name: Install Playwright Chromium
+        run: cd web && npx playwright install-deps chromium
+
+      - name: Verify project
+        run: mise run verify
+

@@ -79,3 +79,11 @@ Create a polished, clickable Vue and TypeScript prototype backed by a small Rust
 - The visual direction and amount of guidance shown beside the code.
 - Whether the first exercise picker is a sidebar or a separate selection screen.
 - The sample exercise content and the best default simulated outcomes.
+
+## Implementation notes
+
+- Initial stack: Axum and Tokio for the Rust HTTP service; Vue 3, TypeScript, Vite, Vitest, Vue Test Utils, Playwright, and StrykerJS for the browser UI and tests.
+- The API is rooted at `/api/v1`; the browser uses `VITE_API_BASE_URL` so unit tests and alternate local ports can supply a different endpoint.
+- The service uses deterministic mock checks and hints. Real compiler execution and model calls belong to later milestones.
+- Rust toolchain and mutation testing require Rust/Cargo and `cargo-mutants` to be installed on the development machine.
+- Frontend mutation testing targets the API client, where mutations map to contract behavior; Vue UI state is covered with component and browser end-to-end tests.

@@ -1,0 +1,73 @@
+[tools]
+"cargo:cargo-llvm-cov" = "0.9.1"
+"cargo:cargo-mutants" = "27.1.0"
+
+[tools.rust]
+version = "1.99.1"
+profile = "minimal"
+components = ["rustfmt", "llvm-tools"]
+
+[tasks.setup]
+description = "Install JavaScript dependencies and the Playwright Chromium browser"
+run = "cd web && npm ci && npx playwright install chromium"
+
+[tasks.build]
+description = "Type-check and build the Vue application"
+run = "cd web && npm run build"
+
+[tasks.format]
+description = "Check Rust and web formatting"
+run = [
+  "cargo fmt --manifest-path server/Cargo.toml -- --check",
+  "cd web && npm run format:check",
+]
+
+[tasks.lint-web]
+description = "Lint TypeScript and Vue files"
+run = "cd web && npm run lint"
+
+[tasks.test-rust]
+description = "Run Rust unit tests"
+run = "cargo test --manifest-path server/Cargo.toml"
+
+[tasks.test-web]
+description = "Run frontend unit tests with coverage"
+run = "cd web && npm run test:coverage"
+
+[tasks.test-e2e]
+description = "Run Playwright end-to-end tests"
+run = "cd web && npm run test:e2e"
+
+[tasks.coverage-rust]
+description = "Run Rust unit tests and print coverage"
+run = "cargo llvm-cov --manifest-path server/Cargo.toml --text"
+
+[tasks.mutation-rust]
+description = "Run Rust mutation tests on coach logic"
+run = "cargo mutants --manifest-path server/Cargo.toml --file src/coach.rs --jobs 2"
+
+[tasks.mutation-web]
+description = "Run frontend mutation tests on the API client"
+run = "cd web && npm run test:mutation"
+
+[tasks.dev-api]
+description = "Start the local Rust API"
+run = "cargo run --manifest-path server/Cargo.toml"
+
+[tasks.dev-web]
+description = "Start the Vue development server"
+run = "cd web && npm run dev"
+
+[tasks.verify]
+description = "Run formatting, builds, unit tests, browser tests, and mutation tests"
+run = [
+  "mise run format",
+  "mise run lint-web",
+  "mise run test-rust",
+  "mise run coverage-rust",
+  "mise run build",
+  "mise run test-web",
+  "mise run test-e2e",
+  "mise run mutation-rust",
+  "mise run mutation-web",
+]
